@@ -26,11 +26,6 @@ variables:
   azureServiceConnectionId: 'ahold-poc-demo'
   azureArtifactName: 'jpetstore'
   azureFeedPublishName: '765878f8-c954-450c-9d10-10f7effa2b3c'
-resources:
-  repositories:
-  - repository: jpetstore-sample
-    type: git
-    name: jpetstore-sample
 stages:
 - stage: JavaBuildPipeline
   displayName: Java CI CD Build Pipeline
@@ -40,7 +35,7 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - checkout: jpetstore-sample
+    - checkout: self
       displayName: CodeCheckout
     - task: Maven@3
       displayName: BuildWithMaven
