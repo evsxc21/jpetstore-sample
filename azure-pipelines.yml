@@ -65,7 +65,7 @@ stages:
       inputs:
         mavenPomFile: 'pom.xml'
         goals: 'sonar:sonar'
-        options: '-Dsonar.host.url=http://rs06ue2dguidingstars-rg02-sonarqube.eastus.azurecontainer.io:9000  -Dsonar.login=e92ce9972d34514b092388c1a60fc5c2834dce85 -Donar.sources=. -Dsonar.java.binaries=. -Dsonar.java.coveragePlugin: ''jacoco''   -DsonarJavaSource: ''.''   sonarJavaBinaries: ''.''   -Dsonar.junit.reportsPath: ''target/surefire-reports''   -Dsonar.surefire.reportsPath: ''target/surefire-reports''   -Dsonar.jacoco.reportPath: ''target/jacoco.exec''   -Dsonar.binaries: ''target/classes'''
+        options: '-Dsonar.host.url=http://rs06ue2dguidingstars-rg02-sonarqube.eastus.azurecontainer.io:9000  -Dsonar.login=e92ce9972d34514b092388c1a60fc5c2834dce85 -Donar.sources=. -Dsonar.java.binaries=. -Dsonar.java.coveragePlugin=jacoco -DsonarJavaSource=. -Dsonar.junit.reportsPath=target/surefire-reports -Dsonar.surefire.reportsPath=target/surefire-reports -Dsonar.jacoco.reportPath=target/jacoco.exec -Dsonar.binaries=target/classes'
         publishJUnitResults: false
         javaHomeOption: 'JDKVersion'
         mavenVersionOption: 'Default'
