@@ -89,7 +89,7 @@ stages:
         command: 'publish'
         publishDirectory: $(artifactsPath)
         feedsToUsePublish: 'internal'
-        vstsFeedPublish: '897490d8-8a00-4db5-9c14-eba6d71676e8'
+        vstsFeedPublish: 'a79188c1-dea3-46bf-bfbf-5c32e952156d/4e8a7445-c74a-4348-ad4d-46fb1c0b3714'
         vstsFeedPackagePublish: $(azureArtifactName)
         versionOption: 'custom'
         versionPublish: '0.0.1-snapshot'
