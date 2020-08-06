@@ -38,6 +38,24 @@ stages:
     - checkout: self
       displayName: CodeCheckout
     - task: Maven@3
+      inputs:
+        mavenPomFile: 'pom.xml'
+        goals: 'sonar:sonar'
+        options: '-Dsonar.host.url=http://rs06ue2dguidingstars-rg02-sonarqube.eastus.azurecontainer.io:9000  -Dsonar.login=e92ce9972d34514b092388c1a60fc5c2834dce85 -Donar.sources=.'
+        publishJUnitResults: false
+        codeCoverageToolOption: 'JaCoCo'
+        codeCoverageClassFilesDirectories: '.'
+        codeCoverageSourceDirectories: '.'
+        javaHomeOption: 'JDKVersion'
+        mavenVersionOption: 'Default'
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: true
+        sqMavenPluginVersionChoice: 'pom'
+        checkStyleRunAnalysis: true
+        pmdRunAnalysis: true
+        findBugsRunAnalysis: true
+    - task: Maven@3
       displayName: BuildWithMaven
       inputs:
         mavenPomFile: 'pom.xml'
@@ -47,31 +65,32 @@ stages:
         effectivePomSkip: false
         sonarQubeRunAnalysis: false
         publishJUnitResults: false
-    - task: Maven@3
-      displayName: UnitTest
-      inputs:
-        mavenPomFile: 'pom.xml'
-        goals: 'test'
-        publishJUnitResults: true
-        testResultsFiles: '**/surefire-reports/TEST-*.xml'
-        javaHomeOption: 'JDKVersion'
-        mavenVersionOption: 'Default'
-        mavenAuthenticateFeed: false
-        effectivePomSkip: false
-        sonarQubeRunAnalysis: false
-    - task: Maven@3
-      displayName: SeleniumTest
-      inputs:
-        mavenPomFile: 'pom.xml'
-        goals: 'verify'
-        options: '-P tomcat90'
-        publishJUnitResults: true
-        testResultsFiles: '**/surefire-reports/TEST-*.xml'
-        javaHomeOption: 'JDKVersion'
-        mavenVersionOption: 'Default'
-        mavenAuthenticateFeed: false
-        effectivePomSkip: false
-        sonarQubeRunAnalysis: false
+    
+    #- task: Maven@3
+    #  displayName: UnitTest
+    #  inputs:
+    #    mavenPomFile: 'pom.xml'
+    #    goals: 'test'
+    #    publishJUnitResults: true
+    #    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    #    javaHomeOption: 'JDKVersion'
+    #    mavenVersionOption: 'Default'
+    #    mavenAuthenticateFeed: false
+    #    effectivePomSkip: false
+    #    sonarQubeRunAnalysis: false
+    #- task: Maven@3
+    #  displayName: SeleniumTest
+    #  inputs:
+    #    mavenPomFile: 'pom.xml'
+    #    goals: 'verify'
+    #    options: '-P tomcat90'
+    #    publishJUnitResults: true
+    #    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    #    javaHomeOption: 'JDKVersion'
+    #    mavenVersionOption: 'Default'
+    #    mavenAuthenticateFeed: false
+    #    effectivePomSkip: false
+    #    sonarQubeRunAnalysis: false
   #  - task: SonarQubePrepare@4
   #    displayName: SonarqubeInitial
   #    inputs:
