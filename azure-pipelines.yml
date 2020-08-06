@@ -22,7 +22,7 @@ variables:
   artifactsPath: '/home/vsts/work/1/s/target/jpetstore.war'
   artifactRepoName: 'jpetstore'
   artifactVersionType: 'patch'
-  webServer: 'java-sample-demo11'
+  webServer: 'FoundationalAppJava'
   azureServiceConnectionId: 'ahold-poc-demo'
   azureArtifactName: 'jpetstore'
   azureFeedPublishName: '765878f8-c954-450c-9d10-10f7effa2b3c'
@@ -92,10 +92,10 @@ stages:
         vstsFeedPublish: 'a79188c1-dea3-46bf-bfbf-5c32e952156d/4e8a7445-c74a-4348-ad4d-46fb1c0b3714'
         vstsFeedPackagePublish: $(azureArtifactName)
         versionOption: $(artifactVersionType)
-  #  - task: AzureWebApp@1
-  #    displayName: App Deployment
-  #    inputs:
-  #      azureSubscription: $(azureServiceConnectionId)
-  #      appType: 'webAppLinux'
-  #      appName: $(webServer)
-  #      package: $(artifactsPath)
+    - task: AzureWebApp@1
+      displayName: App Deployment
+      inputs:
+        azureSubscription: 5d5922ed-d956-4fc6-8321-a23bb580a577
+        appType: 'webAppLinux'
+        appName: $(webServer)
+        package: $(artifactsPath)
