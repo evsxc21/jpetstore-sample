@@ -95,7 +95,7 @@ stages:
     - task: AzureWebApp@1
       displayName: App Deployment
       inputs:
-        azureSubscription: 5d5922ed-d956-4fc6-8321-a23bb580a577
+        azureSubscription: 'Devops_Gudiningstars-rg02'
         appType: 'webAppLinux'
         appName: $(webServer)
         package: $(artifactsPath)
