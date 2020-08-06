@@ -84,16 +84,15 @@ stages:
         mavenAuthenticateFeed: false
         effectivePomSkip: false
         sonarQubeRunAnalysis: false
-    
-  #  - task: UniversalPackages@0
-  #    displayName: PublishArtifacts
-  #    inputs:
-  #      command: 'publish'
-  #      publishDirectory: $(artifactsPath)
-  #      feedsToUsePublish: 'internal'
-  #      vstsFeedPublish: $(azureFeedPublishName)
-  #      vstsFeedPackagePublish: $(azureArtifactName)
-  #      versionOption: 'patch'
+    - task: UniversalPackages@0
+      inputs:
+        command: 'publish'
+        publishDirectory: $(artifactsPath)
+        feedsToUsePublish: 'internal'
+        vstsFeedPublish: '897490d8-8a00-4db5-9c14-eba6d71676e8'
+        vstsFeedPackagePublish: $(azureArtifactName)
+        versionOption: 'custom'
+        versionPublish: '0.0.1-snapshot'
   #  - task: AzureWebApp@1
   #    displayName: App Deployment
   #    inputs:
