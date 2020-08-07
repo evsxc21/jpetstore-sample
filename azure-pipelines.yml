@@ -41,6 +41,7 @@ stages:
       displayName: BuildWithMaven
       inputs:
         mavenPomFile: 'pom.xml'
+        goals: 'install'
         javaHomeOption: 'JDKVersion'
         mavenVersionOption: 'Default'
         mavenAuthenticateFeed: false
