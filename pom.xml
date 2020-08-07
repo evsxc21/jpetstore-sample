@@ -252,15 +252,6 @@
         </executions>
       </plugin>
     </plugins>
-    <resources>
-    <resource>
-       <directory>${project.basedir}/appinsights</directory>
-      <!-- Relative path to /site/wwwroot/ -->   <targetPath>appinsights</targetPath>
-       <includes>
-         <include>*</include>
-       </includes>
-    </resource>
-  </resources>
   </build>
 
   <repositories>
