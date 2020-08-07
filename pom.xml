@@ -119,6 +119,13 @@
       <artifactId>hsqldb</artifactId>
       <version>${hsqldb.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>applicationinsights-web-auto</artifactId>
+        <!-- or applicationinsights-web for manual web filter registration -->
+        <!-- or applicationinsights-core for bare API -->
+       <version>2.5.0</version>
+    </dependency>
 
     <!-- Test dependencies -->
     <dependency>
@@ -163,13 +170,6 @@
       <version>${spring.version}</version>
       <scope>test</scope>
     </dependency>
-      <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>applicationinsights-web-auto</artifactId>
-        <!-- or applicationinsights-web for manual web filter registration -->
-        <!-- or applicationinsights-core for bare API -->
-        <version>2.5.0</version>
-      </dependency>
   </dependencies>
 
   <build>
@@ -260,7 +260,7 @@
         </executions>
       </plugin>
     </plugins>
-           <resources>
+    <resources>
     <resource>
        <directory>${project.basedir}/appinsights</directory>
       <!-- Relative path to /site/wwwroot/ -->   <targetPath>appinsights</targetPath>
