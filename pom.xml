@@ -163,6 +163,13 @@
       <version>${spring.version}</version>
       <scope>test</scope>
     </dependency>
+      <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>applicationinsights-web-auto</artifactId>
+        <!-- or applicationinsights-web for manual web filter registration -->
+        <!-- or applicationinsights-core for bare API -->
+        <version>2.5.0</version>
+      </dependency>
   </dependencies>
 
   <build>
@@ -253,6 +260,15 @@
         </executions>
       </plugin>
     </plugins>
+           <resources>
+    <resource>
+       <directory>${project.basedir}/appinsights</directory>
+      <!-- Relative path to /site/wwwroot/ -->   <targetPath>appinsights</targetPath>
+       <includes>
+         <include>*</include>
+       </includes>
+    </resource>
+  </resources>
   </build>
 
   <repositories>
